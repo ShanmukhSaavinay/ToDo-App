@@ -1,0 +1,23 @@
+body{
+  background-color: lightblue;
+}
+
+h1{
+  color : red;
+  text-align: center;
+  font-size: 45px;
+}
+.ff{
+  font-size: 25px;
+  margin-left: 30%;
+  margin-top: 2%;
+}
+.tt{
+  font-size: 25px;
+  margin-left: 30%;
+  margin-top: 2%;
+}
+
+input:hover{
+  background-color:  rgb(204, 179, 255);
+}

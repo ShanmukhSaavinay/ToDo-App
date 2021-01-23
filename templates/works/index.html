@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home_Page</title>
+ <link rel="stylesheet" href ="{% static 'css/for_index.css' %}" />
+  </head>
+  <body>
+    <div class="Welcome">
+   Welcome To Do List
+ </div>
+<div class="form">
+  <form method="POST"  >
+    {% csrf_token %}
+    {{ forms.work_to_do }}
+    <br><br>
+    <input type="submit" class="submit"  value="Create"  >
+  </form>
+</div>
+<br><br>
+<table class="tc">
+  <tr>
+     <td>Sno.</td>
+     <td>Lists Of Tasks</td>
+     <td>  </td>
+    <td> </td>
+  </tr>
+  {% for work in works %}
+  <tr>
+  <td> <li></li> </td>
+    <td>
+    {% if work.work_done == True %}
+     <strike>{{ work }}</strike>
+     {% else %}
+     <span>{{ work }}</span>
+     {% endif%}
+      </td>
+     <td><a href="{% url "update_task" work.id %}">Update</a></td>
+      <td> <a href="{% url "delete_task" work.id %}">Delete</a> </td>
+  </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
